@@ -9,9 +9,9 @@ public:
     Hotel(Address address, std::string name, std::string id);
     Room getRoom(unsigned int roomNumber);
     void setRoom(unsigned int roomNumber, Room room);
-    bool addRoom(Room room);
+    bool addRoom(Room& room);
     bool removeRoom(unsigned int roomNumber);
-    void displayRooms();
+    void displayRooms() const;
     std::string getId() const;
     friend std::ostream& operator<<(std::ostream& os, const Hotel& hotel);
 private:

@@ -35,7 +35,8 @@ std::string Room::getType() const
 
 void Room::setPrice(float price)
 {
-    _price = price;
+    if(price > 0)
+        _price = price;
 }
 
 std::ostream& operator<<(std::ostream& os, const Room& room)

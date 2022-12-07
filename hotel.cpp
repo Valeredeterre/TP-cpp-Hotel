@@ -11,16 +11,17 @@ std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
     return os;
 }
 
-Room Hotel::getRoom(unsigned int roomNumber)
+Room Hotel::getRoom(unsigned int roomNumber) 
 {
     for (auto room : _rooms)
     {
         if (roomNumber == room.getNumber())
         {
+
             return room;
         }
     }
-    std::cout << "Room "<<roomNumber<< " does not exist" << std::endl;
+    std::cout << "Room "<<  roomNumber << " does not exist" << std::endl;
 }
 
 void Hotel::setRoom(unsigned int roomNumber, Room room)
@@ -28,7 +29,7 @@ void Hotel::setRoom(unsigned int roomNumber, Room room)
     _rooms.at(roomNumber-1) = room;
 }
 
-bool Hotel::addRoom(Room room)
+bool Hotel::addRoom(Room& room)
 {
     for (auto it = _rooms.begin(); it != _rooms.end(); it++)
     {
@@ -56,7 +57,7 @@ bool Hotel::removeRoom(unsigned int roomNumber)
     return false;
 }
 
-void Hotel::displayRooms()
+void Hotel::displayRooms() const
 {
     for (auto room : _rooms)
         std::cout << room << std::endl;
