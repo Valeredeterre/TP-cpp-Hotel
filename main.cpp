@@ -1,8 +1,10 @@
 #include "date.h"
+#include "client.h"
+#include "room.h"
 
 int main()
 {
-    Date d1(2018, 1, 1);
-    std::cout << d1 << std::endl;
+    Room room(100, 1, "single", true);
+    std::cout << room << std::endl;
     return 0;
 }
