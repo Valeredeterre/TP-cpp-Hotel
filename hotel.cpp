@@ -17,7 +17,6 @@ Room Hotel::getRoom(unsigned int roomNumber)
     {
         if (roomNumber == room.getNumber())
         {
-
             return room;
         }
     }
@@ -66,5 +65,18 @@ void Hotel::displayRooms() const
 std::string Hotel::getId() const
 {
     return _id;
+}
+
+void Hotel::setRoomPrice(unsigned int roomNumber, float price)
+{
+    for (auto it = _rooms.begin(); it < _rooms.end(); it++)
+    {
+        if (roomNumber == it->getNumber())
+        {
+            it->setPrice(price);
+            return;
+        }
+    }
+    std::cout << "Room "<<roomNumber<< " does not exist" << std::endl;
 }
 

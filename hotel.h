@@ -13,6 +13,7 @@ public:
     bool removeRoom(unsigned int roomNumber);
     void displayRooms() const;
     std::string getId() const;
+    void setRoomPrice(unsigned int roomNumber, float price);
     friend std::ostream& operator<<(std::ostream& os, const Hotel& hotel);
 private:
     Address _address;

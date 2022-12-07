@@ -7,12 +7,13 @@ int main()
     hotel.addRoom(room);
     Date date(8, 12, 2022);
     Client client("john", "doe", "1");
-    hotel.getRoom(1).setPrice(1000);
     Booking booking(date, hotel, client, 1, 1);
+    hotel.setRoomPrice(1, 1000);
     booking.setNumberOfNights(35);
     std::cout << hotel.getRoom(1).getPrice()<< "\n"; 
-    std::cout << &room << std::endl;
-    Room room2 = hotel.getRoom(1);
-    std::cout << &room2 << std::endl;
+
+    /*std::cout << &room << std::endl;
+    Room* a = &room;
+    std::cout << a << std::endl;*/
     return 0;
 }
