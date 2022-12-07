@@ -4,17 +4,17 @@
 class Room
 {
 public:
-    Room(float price, int number, std::string type, bool isAvailable);
-    float GetPrice() const;
-    int GetNumber() const;
+    Room(float price, unsigned int number, std::string type, bool isAvailable);
+    float getPrice() const;
+    unsigned int getNumber() const;
     bool getIsAvailable() const;
-    void SetIsAvailable(bool isAvailable);
-    std::string GetType() const;
-    void SetPrice(float price);
+    void setIsAvailable(bool isAvailable);
+    std::string getType() const;
+    void setPrice(float price);
     friend std::ostream& operator<<(std::ostream& os, const Room& room);
 private:
     float _price;
-    int _number;
+    unsigned int _number;
     std::string _type;
     bool _isAvailable;
 };

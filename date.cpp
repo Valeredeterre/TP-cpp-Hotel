@@ -89,3 +89,26 @@ std::ostream& operator<<(std::ostream& os, const Date& date)
     return os;
 }
 
+//TODO: make it clean
+bool Date::operator>(const Date& date) const
+{
+    if(_year > date.GetYear())
+    {
+        return true;
+    }
+    else if(_year == date.GetYear())
+    {
+        if(_month > date.GetMonth())
+        {
+            return true;
+        }
+        else if(_month == date.GetMonth())
+        {
+            if(_day > date.GetDay())
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <time.h>
+#include <array>
 
 class Date{
 public:
@@ -10,6 +11,7 @@ public:
     int GetMonth() const;
     int GetDay() const;
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
+    bool operator>(const Date& date) const;
 
 private:
     bool dateIsValid(int day, int month, int year);

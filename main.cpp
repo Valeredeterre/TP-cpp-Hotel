@@ -1,10 +1,11 @@
-#include "date.h"
-#include "client.h"
-#include "room.h"
+#include "booking.h"
 
 int main()
 {
-    Room room(100, 1, "single", true);
-    std::cout << room << std::endl;
+    Hotel hotel(Address("rue de la porte de bessey", 25 , "beze", 21310), "california", "1");
+    hotel.addRoom(Room(120, 1, "suite", true));
+    Date date(8, 12, 2022);
+    Client client("john", "doe", "1");
+    Booking booking(date, hotel, client, 2, 1);
     return 0;
 }

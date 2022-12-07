@@ -1,6 +1,6 @@
 #include "room.h"
 
-Room::Room(float price, int number, std::string type, bool isAvailable)
+Room::Room(float price, unsigned int number, std::string type, bool isAvailable)
 {
     _price = price;
     _number = number;
@@ -8,12 +8,12 @@ Room::Room(float price, int number, std::string type, bool isAvailable)
     _isAvailable = isAvailable;
 }
 
-float Room::GetPrice() const
+float Room::getPrice() const
 {
     return _price;
 }
 
-int Room::GetNumber() const
+unsigned int Room::getNumber() const
 {
     return _number;
 }
@@ -23,17 +23,17 @@ bool Room::getIsAvailable() const
     return _isAvailable;
 }
 
-void Room::SetIsAvailable(bool isAvailable)
+void Room::setIsAvailable(bool isAvailable)
 {
     _isAvailable = isAvailable;
 }
 
-std::string Room::GetType() const
+std::string Room::getType() const
 {
     return _type;
 }
 
-void Room::SetPrice(float price)
+void Room::setPrice(float price)
 {
     _price = price;
 }
