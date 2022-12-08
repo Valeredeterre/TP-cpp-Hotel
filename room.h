@@ -4,7 +4,7 @@
 class Room
 {
 public:
-    Room(float price, unsigned int number, std::string type, bool isAvailable);
+    Room(float price = 0, unsigned int number = 0, std::string type = "Error", bool isAvailable = false);
     float getPrice() const;
     unsigned int getNumber() const;
     bool getIsAvailable() const;

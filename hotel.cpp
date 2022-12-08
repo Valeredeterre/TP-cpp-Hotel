@@ -7,7 +7,23 @@ Hotel::Hotel(Address address, std::string name, std::string id)
 
 std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
 {
-    os << hotel._name << " " << hotel._address;
+    os << hotel._name << " " << hotel._address << std::endl;
+    std::cout << "Avaiable Rooms:" << std::endl;
+    for (auto room : hotel._rooms)
+    {
+        if (room.getIsAvailable())
+        {
+            std::cout << room << std::endl;
+        }
+    }
+    std::cout << "Booked Rooms:" << std::endl;
+    for (auto room : hotel._rooms)
+    {
+        if (!room.getIsAvailable())
+        {
+            std::cout << room << std::endl;
+        }
+    }
     return os;
 }
 
@@ -21,6 +37,7 @@ Room Hotel::getRoom(unsigned int roomNumber)
         }
     }
     std::cout << "Room "<<  roomNumber << " does not exist" << std::endl;
+    return Room();
 }
 
 void Hotel::setRoom(unsigned int roomNumber, Room room)

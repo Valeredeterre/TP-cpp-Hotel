@@ -85,7 +85,7 @@ bool Date::dateIsValid(int d, int m, int y)
 
 std::ostream& operator<<(std::ostream& os, const Date& date)
 {
-    os << date.GetDay() << "-" << date.GetMonth() << "-" << date.GetYear();
+    os << date.GetDay() << "/" << date.GetMonth() << "/" << date.GetYear();
     return os;
 }
 

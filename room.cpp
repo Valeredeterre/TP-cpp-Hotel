@@ -41,7 +41,10 @@ void Room::setPrice(float price)
 
 std::ostream& operator<<(std::ostream& os, const Room& room)
 {
-    os << "Room number: " << room._number << ", type: " << room._type << ", price: " << room._price << ", is available: " << room._isAvailable;
+    os << "Room number: " << room._number << ", type: " << room._type << ", price: " << room._price << " €, is available: ";
+    if (room._isAvailable)
+        os << "Yes";
+    else os << "No";
     return os;
 }
 

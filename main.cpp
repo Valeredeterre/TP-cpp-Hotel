@@ -1,19 +1,19 @@
-#include "booking.h"
+#include "function.h"
 
 int main()
 {
-    Hotel hotel(Address("rue de la porte de bessey", 25 , "beze", 21310), "california", "1");
-    Room room(120, 1, "suite", true);
-    hotel.addRoom(room);
-    Date date(8, 12, 2022);
-    Client client("john", "doe", "1");
-    Booking booking(date, hotel, client, 1, 1);
-    hotel.setRoomPrice(1, 1000);
-    booking.setNumberOfNights(35);
-    std::cout << hotel.getRoom(1).getPrice()<< "\n"; 
+    std::array<Client, 5> clients = 
+    {
+        Client("Dupont", "Jean", "1"),
+        Client("Durand", "Pierre", "2"),
+        Client("Martin", "Paul", "3"),
+        Client("Bernard", "Jacques", "4"),
+        Client("Thomas", "Robert", "5")
+    };
 
-    /*std::cout << &room << std::endl;
-    Room* a = &room;
-    std::cout << a << std::endl;*/
+
+    Hotel hotel(Address("rue de la porte de bessey", 25 , "beze", 21310), "california", "1");
+    fillHotelWithRooms(hotel);
+    std::cout << hotel;
     return 0;
 }
