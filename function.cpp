@@ -106,7 +106,7 @@ void createANewBooking(std::vector<Booking>& bookings, Date checkInDate, unsigne
         std::cin >> year;
 
     }while(!dateIsValid(day, month, year));
-    Date checkInDate(day, month, year);
+    checkInDate = Date(day, month, year);
 
 
     std::string name;
@@ -123,7 +123,7 @@ void createANewBooking(std::vector<Booking>& bookings, Date checkInDate, unsigne
         std::cin >> numberOfNights;
     }while(numberOfNights <= 1);
 
-    unsigned int roomNumber = 0;
+    roomNumber = 0;
     do
     {
         std::cout << "Enter the room number: ";
@@ -131,6 +131,6 @@ void createANewBooking(std::vector<Booking>& bookings, Date checkInDate, unsigne
     } while (roomNumber <= 0 || roomNumber > hotel.getNumberOfRooms());
     
 
-    Booking booking(Date(day, month, year), hotel, roomNumber, client, numberOfNights);
+    Booking booking(checkInDate, hotel, client, roomNumber, numberOfNights);
     bookings.push_back(booking);
 }

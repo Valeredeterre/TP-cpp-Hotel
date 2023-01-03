@@ -108,3 +108,12 @@ bool Date::operator>(const Date& date) const
     }
     return false;
 }
+
+bool Date::operator==(const Date& date) const
+{
+    if(_year == date.GetYear() && _month == date.GetMonth() && _day == date.GetDay())
+    {
+        return true;
+    }
+    return false;
+}
