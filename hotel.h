@@ -15,6 +15,7 @@ public:
     std::string getId() const;
     void setRoomPrice(unsigned int roomNumber, float price);
     friend std::ostream& operator<<(std::ostream& os, const Hotel& hotel);
+    unsigned int getNumberOfRooms() const;
 private:
     Address _address;
     std::string _name;

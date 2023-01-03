@@ -47,9 +47,9 @@ void Hotel::setRoom(unsigned int roomNumber, Room room)
 
 bool Hotel::addRoom(Room& room)
 {
-    for (auto it = _rooms.begin(); it != _rooms.end(); it++)
+    for (auto it : _rooms)
     {
-        if (room.getNumber() == it->getNumber())
+        if (room.getNumber() == it.getNumber())
         {
             std::cout << "Room "<<room.getNumber()<< " already exists" << std::endl;
             return false;
@@ -86,14 +86,19 @@ std::string Hotel::getId() const
 
 void Hotel::setRoomPrice(unsigned int roomNumber, float price)
 {
-    for (auto it = _rooms.begin(); it < _rooms.end(); it++)
+    for (auto it : _rooms)
     {
-        if (roomNumber == it->getNumber())
+        if (roomNumber == it.getNumber())
         {
-            it->setPrice(price);
+            it.setPrice(price);
             return;
         }
     }
     std::cout << "Room "<<roomNumber<< " does not exist" << std::endl;
+}
+
+unsigned int Hotel::getNumberOfRooms() const
+{
+    return _rooms.size();
 }
 

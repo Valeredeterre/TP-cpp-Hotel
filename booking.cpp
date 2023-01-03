@@ -52,3 +52,18 @@ std::ostream& operator<<(std::ostream& os, const Booking& booking)
     os << "Check in date: " << booking._checkInDate << ", hotel: " << booking._hotel << ", client: " << booking._client << ", room number: " << booking._roomNumber << ", number of nights: " << booking._numberOfNights << ", total cost: " << booking._totalCost;
     return os;
 }
+
+Client Booking::getClient()
+{
+    return _client;
+}
+
+Date Booking::getCheckInDate()
+{
+    return _checkInDate;
+}
+
+unsigned int Booking::getRoomNumber()
+{
+    return _roomNumber;
+}

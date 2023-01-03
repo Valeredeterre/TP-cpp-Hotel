@@ -9,8 +9,11 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Booking& booking);
     void setCheckInDate(Date checkInDate);
     void setNumberOfNights(unsigned int numberOfNights);
-    float totalCost();
+    Client getClient();
+    Date getCheckInDate();
+    unsigned int getRoomNumber();
 private:
+    float totalCost();
     Date _checkInDate;
     Hotel _hotel;
     Client _client;

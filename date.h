@@ -12,6 +12,7 @@ public:
     int GetDay() const;
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
     bool operator>(const Date& date) const;
+    bool operator ==(const Date& date) const;
 
 private:
     bool dateIsValid(int day, int month, int year);

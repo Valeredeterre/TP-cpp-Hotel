@@ -10,11 +10,7 @@ Date::Date(int day, int month, int year)
     }
     else
     {
-        time_t t = time(0);
-        struct tm * now = localtime( & t );
-        _year = now->tm_year + 1900;
-        _month = now->tm_mon + 1;
-        _day = now->tm_mday;
+        throw std::invalid_argument("Invalid date");
     }
 }
 
