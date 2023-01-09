@@ -1,7 +1,7 @@
 #include "booking.h"
 
-Booking::Booking(Date checkInDate, Hotel& hotel, Client& client, unsigned int roomNumber, unsigned int numberOfNights)
-:_hotel(hotel), _client(client)
+Booking::Booking(Date checkInDate, Hotel& hotel, Client& client, unsigned int roomNumber, unsigned int numberOfNights, unsigned int id=0)
+:_hotel(hotel), _client(client), _id(id)
 {
     if(hotel.getRoom(roomNumber).getIsAvailable() && checkInDate > Date() && numberOfNights > 0)
     {
@@ -67,3 +67,36 @@ unsigned int Booking::getRoomNumber()
 {
     return _roomNumber;
 }
+
+unsigned int Booking::getNumberOfNights()
+{
+    return _numberOfNights;
+}
+
+unsigned int Booking::getId()
+{
+    return _id;
+}
+
+bool Booking::setRoomNumber(unsigned int roomNumber)
+{
+    if(_hotel.getRoom(roomNumber).getIsAvailable())
+    {
+        _hotel.getRoom(_roomNumber).setIsAvailable(true);
+        _roomNumber = roomNumber;
+        _hotel.getRoom(_roomNumber).setIsAvailable(false);
+        _totalCost = totalCost();
+        return true;
+    }
+    else
+    {
+        std::cout << "Room is not available" << std::endl;
+        return false;
+    }
+}
+
+Hotel& Booking::getHotel()
+{
+    return _hotel;
+}
+

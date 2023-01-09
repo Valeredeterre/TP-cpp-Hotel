@@ -1,5 +1,6 @@
 #include "function.h"
 
+
 bool dateIsValid(unsigned int d,unsigned int m,unsigned int y)
 {
     if(y < 0 || m < 0 || d < 0)
@@ -133,4 +134,103 @@ void createANewBooking(std::vector<Booking>& bookings, Date checkInDate, unsigne
 
     Booking booking(checkInDate, hotel, client, roomNumber, numberOfNights);
     bookings.push_back(booking);
+}
+
+void displayAllBookings(std::vector<Booking>& bookings)
+{
+    for (auto booking : bookings)
+    {
+        std::cout << booking << std::endl;
+    }
+}
+
+unsigned int findFirstFreeBookingId(std::vector<Booking>& bookings)
+{
+    unsigned int id = 0;
+    for (auto booking : bookings)
+    {
+        if (booking.getId() == id)
+        {
+            id++;
+        }
+    }
+    return id;
+}
+
+void displayBookingWithId(std::vector<Booking>& bookings, unsigned int id)
+{
+    for (auto booking : bookings)
+    {
+        if (booking.getId() == id)
+        {
+            std::cout << booking << std::endl;
+            return;
+        }
+    }
+    std::cout << "Booking not found" << std::endl;
+}
+
+void displayAllBookingsForAClient(std::vector<Booking>& bookings, std::string name)
+{
+    for (auto booking : bookings)
+    {
+        if (booking.getClient().GetName() == name)
+        {
+            std::cout << booking << std::endl;
+        }
+    }
+}
+
+void modifyBooking(std::vector<Booking>& bookings, unsigned int id)
+{
+    for (auto booking : bookings)
+    {
+        if (booking.getId() == id)
+        {
+            unsigned int day = 0, month = 0, year = 0;
+            do
+            {
+                std::cout << "Enter the check in date: " << std::endl;
+                std::cout << "Day: ";
+                std::cin >> day;
+                std::cout << "Month: ";
+                std::cin >> month;
+                std::cout << "Year: ";
+                std::cin >> year;
+
+            } while (!dateIsValid(day, month, year));
+            booking.setCheckInDate(Date(day, month, year));
+
+            unsigned int numberOfNights = 0;
+            do
+            {
+                std::cout << "Enter the number of nights: ";
+                std::cin >> numberOfNights;
+            } while (numberOfNights <= 1);
+            booking.setNumberOfNights(numberOfNights);
+
+            unsigned int roomNumber = 0;
+            do
+            {
+                std::cout << "Enter the room number: ";
+                std::cin >> roomNumber;
+            } while (roomNumber <= 0 || roomNumber > booking.getHotel().getNumberOfRooms());
+            booking.setRoomNumber(roomNumber);
+            return;
+        }
+    }
+    std::cout << "Booking not found" << std::endl;
+}
+
+void deleteBooking(std::vector<Booking>& bookings, unsigned int id)
+{
+    for (auto booking : bookings)
+    {
+        if (booking.getId() == id)
+        {
+            bookings.erase(std::find(bookings.begin(), bookings.end(), booking), bookings.end());
+            return;
+        }
+    }
+    std::cout << "Booking not found" << std::endl;
 }
