@@ -224,11 +224,11 @@ void modifyBooking(std::vector<Booking>& bookings, unsigned int id)
 
 void deleteBooking(std::vector<Booking>& bookings, unsigned int id)
 {
-    for (auto booking : bookings)
+    for (unsigned int i = 0; i < bookings.size(); i++)
     {
-        if (booking.getId() == id)
+        if (bookings.at(i).getId() == id)
         {
-            bookings.erase(std::find(bookings.begin(), bookings.end(), booking), bookings.end());
+            bookings.erase(bookings.begin() + i);
             return;
         }
     }
