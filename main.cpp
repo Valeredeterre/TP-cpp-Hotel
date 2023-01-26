@@ -11,6 +11,7 @@ int main()
         Client("Thomas", "Robert", "5")
     };
 
+    //n'importe quoi
     Hotel hotel(Address("rue de la porte de bessey", 25 , "beze", 21310), "california", "1");
     fillHotelWithRooms(hotel);
 
